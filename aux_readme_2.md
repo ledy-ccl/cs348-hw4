@@ -217,7 +217,7 @@ This file has no classes but defines useful helper functions.
 
 ## `student_code.py`
 
-This file defines the two classes you must implement, KnowledgeBase and InferenceEngine.
+This file defines the two classes you must implement, `KnowledgeBase` and `InferenceEngine`.
 
 ### KnowledgeBase
 
