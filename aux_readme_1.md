@@ -80,7 +80,7 @@ This file defines all basic structure classes.
 
 ### Fact
 
-Represents a fact in our knowledge base. Has a statement containing the content of the fact, e.g. (isa Sorceress Wizard) and fields tracking which facts/rules in the KB it supports and is supported by.
+Represents a fact in our knowledge base (KB). Has a statement containing the content of the fact, e.g., `(isa Sorceress Wizard)` and fields tracking which facts/rules in the KB it supports and is supported by.
 
 **Attributes**
 
@@ -93,13 +93,13 @@ Represents a fact in our knowledge base. Has a statement containing the content 
 
 ### Rule
 
-Represents a rule in our knowledge base. Has a list of statements (the LHS) containing the statements that need to be in our KB for us to infer the RHS statement. Also has fields tracking which facts/rules in the KB it supports and is supported by.
+Represents a rule in our KB. Has a list of statements (the left-hand side or LHS) containing the statements that need to be in our KB for us to infer the right-hand-side or RHS statement. Also has fields tracking which facts/rules in the KB it supports and is supported by.
 
 **Attributes**
 
 - `name` (`str`): 'rule', the name of this class
 - `lhs` (`listof Statement`): LHS statements of this rule
-- `rhs` (`Statement`): RHS statment of this rule
+- `rhs` (`Statement`): RHS statement of this rule
 - `asserted` (`bool`): flag indicating if rule was asserted instead of inferred from other rules/facts in the KB
 - `supported_by` (`listof Fact|Rule`): Facts/Rules that allow inference of the statement
 - `supports_facts` (`listof Fact`): Facts that this rule supports
