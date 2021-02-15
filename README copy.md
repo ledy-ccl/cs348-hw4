@@ -19,19 +19,18 @@ The KB supports two main interfaces: `Assert`and `Ask`.
 
 We provide you five files with code, details of which are described at the end of this writeup:
 
-    `main.py`
-    `logical_classes.py`
-    `read.py`
-    `util.py`
-    `student_code.py`
+- `main.py`: Contains code for testing the KB, which will be implemented as the `KnowledgeBase` class
+- `student_code.py`: Contains the `KnowledgeBase` class and is where you will be writing code
+- `logical_classes.py`: Contains classes for each type of logical component, e.g., `Fact`, `Rule`, etc.
+- `util.py`: Contains several useful helper functions
+- `read.py`: Contains functions that read statements from files or terminal. (You won't need to read/explore this file.)
 
-- `main.py` contains code for testing the KnowledgeBase
-- `student_code.py` contains the `KnowledgeBase` class and is where you will be writing code.
-- `logical_classes.py` contains classes for each type of logical component, e.g. `Fact`, `Rule`, etc.
-- `util.py` contains several useful helper functions
-- `read.py` contains functions that read statements from files or terminal. (You won't need to read/explore this file.)
+There are also two data files that contain the facts and rules to be inserted into the KB:
 
-There are also two data files: `statements_kb.txt` and `statements_kb2.txt`.  These files contain the facts and rules to be inserted into the KB. The provided tests use `statements_kb.txt`, and you may use `statements_kb2.txt` to generate your own tests.
+- `statements_kb.txt`
+- `statements_kb2.txt`
+
+The provided tests use `statements_kb.txt`, and you may use `statements_kb2.txt` to generate your own tests.
 
 # Your task
 
