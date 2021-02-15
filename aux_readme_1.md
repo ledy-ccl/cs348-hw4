@@ -15,7 +15,7 @@ The KB supports two main interfaces for now:
 - `Assert`: Adds facts to the KB
 - `Ask`: Asks queries and returns a list of bindings for facts.
 
-# Part 1: Starter code
+## Part 1: Starter code
 
 We provide you five files with code, details of which are described at the end of this writeup:
 
@@ -32,7 +32,7 @@ There are also two data files that contain the facts and rules to be inserted in
 
 The provided tests use `statements_kb.txt`, and you may use `statements_kb2.txt` to generate your own tests.
 
-# Part 1: Your task
+## Part 1: Your task
 
 To get you started, the stubbed-out code for the `KnowledgeBase.kb_assert` and `KnowledgeBase.kb_ask` methods are in `student_code.py`. These methods are called by the tests in `main.py`.
 
@@ -41,11 +41,11 @@ Your task is two-part:
     1. Implement storing facts in the KB
     2. Implement retrieving facts from the KB 
 
-## Storing facts
+### Storing facts
 
 Storing facts simply puts any facts received into a list of facts.  Be careful to only put a Fact in the list and not just anything (i.e., check that the argument is a Fact).  Note that we expect the facts to be stored in a list (and not a set) to ensure that they are retrieved in a deterministic order.  This is not criticial to the function of the KB but is essential for the Auto Grader.
 
-## Retrieving facts
+### Retrieving facts
 
 The key idea is to find any facts in the KB that match the "asked" for fact.  Since the queried fact may contain a variable, matching facts might not be exact matches.  To help in finding matching facts, we provide a `match` method in `util.py`.  If a pair of facts match, then this method will return the `Bindings` that make the statements unify.
 
