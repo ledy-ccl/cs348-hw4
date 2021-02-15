@@ -34,7 +34,8 @@ To get you started, the `Assert` and `Ask` interfaces have been written - expose
 
 Your task is two-part:
 
-    1. Implement the forward-chaining inferences that occur upon asserting facts and rules into the KB - i.e., implement the `InferenceEnginer.fc_infer` method.
+    1. Implement the forward-chaining inferences that occur upon asserting facts and rules into the KB - 
+    i.e., implement the `InferenceEnginer.fc_infer` method.
     2. Implement the `Retract` interface to remove facts from the KB - i.e., implement the `KnowledgeBase.kb_retract` method.
 
 ### Rule currying in `fc_infer`
