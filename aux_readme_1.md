@@ -158,9 +158,9 @@ Represents Binding(s) used while matching two statements.
 
 **Methods**
 
-- `add_binding(variable, value)` (`(Variable, Constant) => void`) - add a binding from a variable to a value
-- `bound_to(variable)` (`(Variable) => Variable|Constant|False`) - check if variable is bound. If so return value bound to it, else False
-- `test_and_bind(variable_verm,value_term)` (`(Term, Term) => bool`) - Check if variable_term already bound. If so return whether or not passed in value_term matches bound value. If not, add binding between variable_terma and value_term and return True.
+- `add_binding(variable, value)` (`(Variable, Constant) => void`) - Add a binding from a variable to a value.
+- `bound_to(variable)` (`(Variable) => Variable|Constant|False`) - Check if variable is bound. If so, return value bound to it, else False.
+- `test_and_bind(variable_verm,value_term)` (`(Term, Term) => bool`) - Check if variable_term already bound. If so, return whether or not passed-in value_term matches bound value. If not, add binding between variable_terma and value_term, and return True.
 
 ### ListOfBindings
 
@@ -168,9 +168,9 @@ Container for multiple Bindings
 
 **Methods**
 
-- `add_bindings(bindings, facts_rules)` - (`(Bindings, listof Fact|Rule) => void`) - add given bindings to list of Bindings along with associated rules or facts
+- `add_bindings(bindings, facts_rules)` - (`(Bindings, listof Fact|Rule) => void`) - Add given bindings to list of Bindings along with associated rules or facts.
 
-## read.py
+## `read.py`
 
 This file has no classes but defines useful helper functions for reading input from the user or a file.
 
@@ -179,7 +179,7 @@ This file has no classes but defines useful helper functions for reading input f
 - `read_tokenize(file)` - (`(str) => (listof Fact, listof Rule)`) - takes a filename, reads the file and returns a fact list and rule list.
 - `parse_input(e)` - (`(str) => (int, str | listof str)`) - parses input, cleaning it as it does and assigning labels
 
-## util.py
+## `util.py`
 
 This file has no classes but defines useful helper functions.
 
@@ -191,7 +191,7 @@ This file has no classes but defines useful helper functions.
 - `instantiate(statement, bindings)` (`(Statement, Bindings) => Statement|Term`)  - generate Statement from given statement and bindings. Constructed statement has bound values for variables if they exist in bindings.
 - `vprint(message, level, verbose, data=[])` (`(str, int, int, listof any) => void`) - prints message if verbose > level, if data provided then formats message with given data
 
-## student_code.py
+## `student_code.py`
 
 This file defines the two classes you must implement, KnowledgeBase and InferenceEngine.
 
