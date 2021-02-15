@@ -1,7 +1,7 @@
-# HW 4—Knowledge Base
+# HW 4—Knowledge Base: Part 1
 
 
-## Part 1: Introduction
+## Introduction
 
 The facts you will store and retrieve will be statements that include predicates (e.g., Color, Size, Inst) that relate objects together. For example:
 
@@ -15,7 +15,7 @@ The KB supports two main interfaces for now:
 - `Assert`: Adds facts to the KB
 - `Ask`: Asks queries and returns a list of bindings for facts.
 
-## Part 1: Starter code
+## Starter code
 
 We provide you five files with code, details of which are described at the end of this writeup:
 
@@ -32,7 +32,7 @@ There are also two data files that contain the facts and rules to be inserted in
 
 The provided tests use `statements_kb.txt`, and you may use `statements_kb2.txt` to generate your own tests.
 
-## Part 1: Your task
+## Your task
 
 To get you started, the stubbed-out code for the `KnowledgeBase.kb_assert` and `KnowledgeBase.kb_ask` methods are in `student_code.py`. These methods are called by the tests in `main.py`.
 
