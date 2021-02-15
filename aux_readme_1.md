@@ -107,12 +107,12 @@ Represents a rule in our KB. Has a list of statements (the left-hand side or LHS
 
 ### Statement
 
-Represents a statement in our knowledge base, e.g. (attacked Ai Nosliw), (diamonds Loot), (isa Sorceress Wizard), etc. These statements show up in Facts or on the LHS and RHS of Rules.
+Represents a statement in our KB, e.g., `(attacked Ai Nosliw)`, `(diamonds Loot)`, `(isa Sorceress Wizard)`, etc. These statements show up in Facts or on the LHS and RHS of Rules.
 
 **Attributes**
 
-- `predicate` (`str`) - the predicate of the statement, e.g. isa, hero, needs
-- `terms` (`listof Term`) - list of terms (Variable or Constant) in the statement, e.g. `'Nosliw'` or `'?d'`
+- `predicate` (`str`) - the predicate of the statement, e.g., `isa`, `hero`, `needs`
+- `terms` (`listof Term`) - list of terms (Variable or Constant) in the statement, e.g., `'Nosliw'` or `'?d'`
 
 ### Term
 
