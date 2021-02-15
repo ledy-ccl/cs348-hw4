@@ -9,9 +9,9 @@ In this homework, you are going to create a basic knowledge base (KB) to store a
 
     "Block1 is red": Color(block1, red)
 
-   "Block1 is large": Size(block1, large)
+    "Block1 is large": Size(block1, large)
 
-"Rectangles are blocks": Isa(rectangle, block)
+    "Rectangles are blocks": Isa(rectangle, block)
 
 The knowledge base supports two main interfaces: `Assert`and `Ask`.
 
