@@ -66,15 +66,15 @@ __As you implement Part 1, you may want to think ahead to how you would extend t
 
 
 
-# Appendix: File Breakdown
+## Appendix: File Breakdown
 
-Below is a description of each included file and the classes contained within each including a listing of their attributes. Each file has documentation in the code reflecting the information below (in most cases they are exactly the same). As you read through the attributes follow along in the corresponding files and make sure you're understanding the descriptions.
+Below is a description of each included file and the classes contained within each including a listing of their attributes. Each file has documentation in the code reflecting the information below (in most cases they are exactly the same). As you read through the attributes, follow along in the corresponding files, and make sure you're understanding the descriptions.
 
-Attributes of each class are listed in the following format (_Note:_ if you see a type like `Fact|Rule` the `|` type is `or` and mean the type can be either Fact or Rule):
+Attributes of each class are listed in the following format (__Note:__ If you see a type like `Fact|Rule` the `|` type is `or` and means that the type can be either `Fact` or `Rule`):
 
 - `field_name` (`type`) - text description
 
-## logical_classes.py
+## `logical_classes.py`
 
 This file defines all basic structure classes.
 
