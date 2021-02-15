@@ -43,15 +43,15 @@ Your task is two-part:
 
 ### Storing facts
 
-Storing facts simply puts any facts received into a list of facts.  Be careful to only put a Fact in the list and not just anything (i.e., check that the argument is a Fact).  Note that we expect the facts to be stored in a list (and not a set) to ensure that they are retrieved in a deterministic order.  This is not criticial to the function of the KB but is essential for the Auto Grader.
+Storing facts simply puts any facts received into a list of facts.  Be careful to only put a fact in the list and not just anything (i.e., check that the argument is a fact).  Note that we expect the facts to be stored in a list (and __not__ a set) to ensure that they are retrieved in a deterministic order.  This is not criticial to the function of the KB but is essential for the autograder that will be used to grade your code submission.
 
 ### Retrieving facts
 
-The key idea is to find any facts in the KB that match the "asked" for fact.  Since the queried fact may contain a variable, matching facts might not be exact matches.  To help in finding matching facts, we provide a `match` method in `util.py`.  If a pair of facts match, then this method will return the `Bindings` that make the statements unify.
+The key idea is to find any facts in the KB that match the fact "asked" for.  Since the queried fact may contain a variable, matching facts might not be exact matches.  To help in finding matching facts, we provide a `match` method in `util.py`.  If a pair of facts match, then this method will return the bindings (in the data structure `Bindings`) that make the statements unify.
 
-`Bindings` is a list of pairs (binding), where each pair is a variable (e.g., '?X') and a value (e.g., 'red').  Since it is a list, there may be multiple pairs.  Actually, there needs to be exactly one binding for each variable.  For example, in asking for '(color ?X red)', there will be only one binding, the one for '?X'.  But the query for '(color ?X ?Y)'' will result in bindings for '?X' and '?Y'.  See test 5 for an example of bindings containing more than one variable.
+`Bindings` is a list of pairs (bindings), where each pair is a variable (e.g., '?X') and a value (e.g., 'red').  Since it is a list, there may be multiple pairs.  Actually, there needs to be exactly one binding for each variable.  For example, in asking for '(color ?X red)', there will be only one binding, the one for '?X'.  But the query for '(color ?X ?Y)'' will result in bindings for '?X' and '?Y'.  See test 5 for an example of bindings containing more than one variable.
 
-Since there may be many facts that match a queried fact, `kb_ask` needs to return a `ListOfBindings` (or False if no matching facts).  The ListOfBindings is exactly as the name implies, a list of Bindings, packaged up in a class with convenient accessors and such.  See tests 3 and 5 for examples of multiple bindings being returned from `kb_ask`.
+Since there may be many facts that match a queried fact, `kb_ask` needs to return a list of bindings (in the data structure `ListOfBindings`) or False if no facts match. `ListOfBindings` is exactly as the name implies, a list of `Bindings`, packaged up in a class with convenient accessors and such.  See tests 3 and 5 for examples of multiple bindings being returned from `kb_ask`.
 
 
 ## Testing
