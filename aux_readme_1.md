@@ -56,7 +56,7 @@ Since there may be many facts that match a queried fact, `kb_ask` needs to retur
 
 ## Testing
 
-To test your code, we shall create several testing files that will contain a bunch of facts similar to the ones provided. Each fact will be asserted one by one into the KB. After asserting the facts, a query will be constructed, and the KB will be asked for a fact.  __We also recommend that you make your own testing files and that you feel free to share them on Campuswire. When sharing tests, please provide your rationale for each test, explain what you hope to test with it, and/or describe how you developed the test.__
+To test your code, we'll create several testing files that will contain a bunch of facts similar to the ones provided. Each fact will be asserted one by one into the KB. After asserting the facts, a query will be constructed, and the KB will be asked for a fact.  __We also recommend that you make your own testing files__ and that you feel free to share them on Campuswire. When sharing tests, please provide your rationale for each test, explain what you hope to test with it, and/or describe how you developed the test.
 
 ## Sneak-peek of Part 2
 
