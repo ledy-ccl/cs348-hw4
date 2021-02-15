@@ -153,14 +153,14 @@ class Rule(object):
         return not self == other
 
 class Statement(object):
-    """Represents a statement in our knowledge base, e.g. (attacked Ai Nosliw),
+    """Represents a statement in our KB, e.g., (attacked Ai Nosliw),
         (diamonds Loot), (isa Sorceress Wizard), etc. These statements show up
-        in Facts or on the LHS and RHS of Rules
+        in Facts or on the LHS and RHS of Rules.
 
     Attributes:
-        terms (listof Term): List of terms (Variable or Constant) in the
+        terms (listof Term): list of terms (Variable or Constant) in the
             statement, e.g. 'Nosliw' or '?d'
-        predicate (str): The predicate of the statement, e.g. isa, hero, needs
+        predicate (str): the predicate of the statement, e.g., isa, hero, needs
     """
     def __init__(self, statement_list=[]):
         """Constructor for Statements with optional list of Statements that are
@@ -208,12 +208,10 @@ class Statement(object):
         return not self == other
 
 class Term(object):
-    """Represents a term (a Variable or Constant) in our knowledge base. Can
-        sorta be thought of as a super class of Variable and Constant, though
-        there is no inheritance implemented in the code.
+    """Represents a term (a Variable or a Constant) in our KB. It could be thought of as a super class of Variable and Constant, though there is no actual inheritance implemented in the code.
 
     Attributes:
-        term (Variable|Constant): The Variable or Constant that this term holds (represents)
+        term (Variable|Constant): the Variable or Constant that this term holds (represents)
     """
     def __init__(self, term):
         """Constructor for Term which converts term to appropriate form
@@ -250,10 +248,10 @@ class Term(object):
         return not self == other
 
 class Variable(object):
-    """Represents a variable used in statements
+    """Represents a variable used in statements, e.g., ?x.
 
     Attributes:
-        element (str): The name of the variable, e.g. '?x'
+        element (str): the name of the variable, e.g., '?x'
     """
     def __init__(self, element):
         """Constructor for Variable
@@ -288,10 +286,10 @@ class Variable(object):
         return not self == other
 
 class Constant(object):
-    """Represents a constant used in statements
+    """Represents a constant used in statements.
 
     Attributes:
-        element (str): The value of the constant, e.g. 'Nosliw'
+        element (str): the value of the constant, e.g., 'Nosliw'
     """
     def __init__(self, element):
         """Constructor for Constant
@@ -326,12 +324,12 @@ class Constant(object):
         return not self == other
 
 class Binding(object):
-    """Represents a binding of a constant to a variable, e.g. 'Nosliw' might be
-        bound to'?d'
+    """Represents a binding of a constant to a variable, e.g., 'Nosliw' might be
+        bound to '?d'.
 
     Attributes:
-        variable (Variable): The name of the variable associated with this binding
-        constant (Constant): The value of the variable
+        variable (Variable): the name of the variable associated with this binding, e.g., '?d'
+        constant (Constant): the value of the variable, e.g., 'Nosliw'
     """
     def __init__(self, variable, constant):
         """Constructor for Binding
@@ -355,13 +353,13 @@ class Binding(object):
         return self.variable.element.upper() + " : " + self.constant.element
 
 class Bindings(object):
-    """Represents Binding(s) used while matching two statements
+    """Represents Binding(s) used while matching two statements.
 
     Attributes:
         bindings (listof Bindings): bindings involved in match
         bindings_dict (dictof Bindings): bindings involved in match where key is
             bound variable and value is bound value,
-            e.g. some_bindings.bindings_dict['?d'] => 'Nosliw'
+            e.g., some_bindings.bindings_dict['?d'] => 'Nosliw'
     """
     def __init__(self):
         """Constructor for Bindings creating initially empty instance
