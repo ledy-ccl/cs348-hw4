@@ -38,8 +38,8 @@ To get you started, the stubbed-out code for the `KnowledgeBase.kb_assert` and `
 
 Your task is two-part:
 
-    1. Implement storing facts in the KB
-    2. Implement retrieving facts from the KB 
+   1. Implement storing facts in the KB
+   2. Implement retrieving facts from the KB 
 
 ### Storing facts
 
