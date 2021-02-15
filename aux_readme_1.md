@@ -74,11 +74,11 @@ Attributes of each class are listed in the following format (__Note:__ If you se
 
 - `field_name` (`type`) - text description
 
-## `logical_classes.py`
+### `logical_classes.py`
 
 This file defines all basic structure classes.
 
-### Fact
+#### Fact
 
 Represents a fact in our knowledge base. Has a statement containing the content of the fact, e.g. (isa Sorceress Wizard) and fields tracking which facts/rules in the KB it supports and is supported by.
 
