@@ -5,22 +5,25 @@
 
 In this homework, you are going to create a basic knowledge base (KB) to store and retrieve facts. The facts will be statements that include predicates (e.g., Color, Size, Inst) that relate objects together. For example:
 
-    "Block1 is an instance of a rectangle": Inst(block1, rectangle)
+    "Block1 is an instance of a rectangle" - Inst(block1, rectangle)
+    "Block1 is red" - Color(block1, red)
+    "Block1 is large" - Size(block1, large)
+    "Rectangles are blocks" - Isa(rectangle, block)
 
-    "Block1 is red": Color(block1, red)
+The KB supports two main interfaces: `Assert`and `Ask`.
 
-    "Block1 is large": Size(block1, large)
-
-    "Rectangles are blocks": Isa(rectangle, block)
-
-The knowledge base supports two main interfaces: `Assert`and `Ask`.
-
-- `Assert`: Add facts into the knowledge base.
-- `Ask`: ask queries and return a list of bindings for facts.
+- `Assert`: Adds facts to the KB
+- `Ask`: Asks queries and returns a list of bindings for facts.
 
 # Starter code
 
-We provide you five files with code: `main.py`, `logical_classes.py`, `read.py`, `util.py` and `student_code.py`. (Details about these files are described at the end of this write-up.)
+We provide you five files with code, details of which are described at the end of this writeup:
+
+    `main.py`
+    `logical_classes.py`
+    `read.py`
+    `util.py`
+    `student_code.py`
 
 - `main.py` contains code for testing the KnowledgeBase
 - `student_code.py` contains the `KnowledgeBase` class and is where you will be writing code.
