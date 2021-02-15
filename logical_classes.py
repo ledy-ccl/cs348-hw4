@@ -389,7 +389,7 @@ class Bindings(object):
                 else None)
 
     def add_binding(self, variable, value):
-        """Add a binding from a variable to a value
+        """Add a binding from a variable to a value.
 
         Args:
             variable (Variable): the variable to bind to
@@ -399,7 +399,7 @@ class Bindings(object):
         self.bindings.append(Binding(variable, value))
 
     def bound_to(self, variable):
-        """Check if variable is bound. If so return value bound to it, else False.
+        """Check if variable is bound. If so, return value bound to it, else False.
 
         Args:
             variable (Variable): variable to check for binding
@@ -415,9 +415,8 @@ class Bindings(object):
         return False
 
     def test_and_bind(self, variable_term, value_term):
-        """Check if variable_term already bound. If so return whether or not passed
-            in value_term matches bound value. If not, add binding between
-            variable_terma and value_term and return True.
+        """Check if variable_term already bound. If so, return whether or not passed-in value_term matches bound value. If not, add binding between
+            variable_terma and value_term, and return True.
 
         Args:
             value_term (Term): value to maybe bind
@@ -475,7 +474,7 @@ class ListOfBindings(object):
         return self.list_of_bindings[key][0]
 
     def add_bindings(self, bindings, facts_rules=[]):
-        """Add given bindings to list of Bindings along with associated rules or facts
+        """Add given bindings to list of Bindings along with associated rules or facts.
 
             Args:            
                 bindings (Bindings): bindings to add
