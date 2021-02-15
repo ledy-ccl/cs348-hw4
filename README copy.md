@@ -1,21 +1,27 @@
 # HW 4—Knowledge Base
 
+[this](https://github.com/NUCS348/assignment-4-knowledge-base/blob/main/README.md)
+[this](https://github.com/NUCS348/assignment-4-knowledge-base/blob/main/README_.md)
 
 ## Introduction
 
-In this homework, you are going to create a basic knowledge base (KB) to store and retrieve facts. The facts will be statements that include predicates (e.g., Color, Size, Inst) that relate objects together. For example:
+This is a two-part homework. In Part 1, you are going to create a basic knowledge base (KB) to store and retrieve facts, and in Part 2, you are going to extend the KB and create an inference engine. Please note that both parts should NOT take you equal time to complete; Part 2 is the bigger of the two parts, requiring more effort than on Part 1. Each part will be discussed separately below, starting with Part 1.
+
+## Part 1: Overview
+
+The facts you will store and retrieve will be statements that include predicates (e.g., Color, Size, Inst) that relate objects together. For example:
 
     "Block1 is an instance of a rectangle" - Inst(block1, rectangle)
     "Block1 is red" - Color(block1, red)
     "Block1 is large" - Size(block1, large)
     "Rectangles are blocks" - Isa(rectangle, block)
 
-The KB supports two main interfaces: `Assert`and `Ask`.
+The KB supports two main interfaces for now:
 
 - `Assert`: Adds facts to the KB
 - `Ask`: Asks queries and returns a list of bindings for facts.
 
-# Starter code
+# Part 1: Starter code
 
 We provide you five files with code, details of which are described at the end of this writeup:
 
@@ -32,9 +38,9 @@ There are also two data files that contain the facts and rules to be inserted in
 
 The provided tests use `statements_kb.txt`, and you may use `statements_kb2.txt` to generate your own tests.
 
-# Your task
+# Part 1: Your task
 
-To get you started, the stubbed out code for the `KnowledgeBase.kb_assert` and `KnowledgeBase.kb_ask` methods are in `student_code.py`.  Therse methods are called by the tests in `main.py`.
+To get you started, the stubbed out code for the `KnowledgeBase.kb_assert` and `KnowledgeBase.kb_ask` methods are in `student_code.py`.  These methods are called by the tests in `main.py`.
 
 Your task is two-part:
 
