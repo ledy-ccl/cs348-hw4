@@ -116,45 +116,45 @@ Represents a statement in our KB, e.g., `(attacked Ai Nosliw)`, `(diamonds Loot)
 
 ### Term
 
-Represents a term (a Variable or Constant) in our knowledge base. It could be thought of as a super class of Variable and Constant, though there is no actual inheritance implemented in the code.
+Represents a term (a Variable or a Constant) in our KB. It could be thought of as a super class of Variable and Constant, though there is no actual inheritance implemented in the code.
 
 **Attributes**
 
-- `term` (`Variable|Constant`) - The Variable or Constant that this term holds (represents)
+- `term` (`Variable|Constant`) - the Variable or Constant that this term holds (represents)
 
 ### Variable
 
-Represents a variable used in statements, e.g. `?x`.
+Represents a variable used in statements, e.g., `?x`.
 
 **Attributes**
 
-- `element` (`str`): The name of the variable, e.g. `'?x'`
+- `element` (`str`): the name of the variable, e.g., `'?x'`
 
 ### Constant
 
-Represents a constant used in statements
+Represents a constant used in statements.
 
 **Attributes**
 
-- `element` (`str`): The value of the constant, e.g. `'Nosliw'`
+- `element` (`str`): the value of the constant, e.g., `'Nosliw'`
 
 ### Binding
 
-Represents a binding of a constant to a variable, e.g. `'Nosliw'` might be bound to `'?d'`
+Represents a binding of a constant to a variable, e.g., `'Nosliw'` might be bound to `'?d'`.
 
 **Attributes**
 
-- `variable` (`str`): The name of the variable associated with this binding, e.g. `'?d'`
-- `constant` (`str`): The value of the variable, e.g. `'Nosliw'`
+- `variable` (`str`): the name of the variable associated with this binding, e.g., `'?d'`
+- `constant` (`str`): the value of the variable, e.g., `'Nosliw'`
 
 ### Bindings
 
-Represents Binding(s) used while matching two statements
+Represents Binding(s) used while matching two statements.
 
 **Attributes**
 
 - `bindings` (`listof Bindings`) - bindings involved in match
-- `bindings_dict` (`dictof Bindings`) - bindings involved in match where key is bound variable and value is bound value, e.g. some_bindings.bindings_dict['?d'] => 'Nosliw'
+- `bindings_dict` (`dictof Bindings`) - bindings involved in match where key is bound variable and value is bound value, e.g., `some_bindings.bindings_dict['?d'] => 'Nosliw'`
 
 **Methods**
 
