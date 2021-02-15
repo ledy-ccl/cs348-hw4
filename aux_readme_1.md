@@ -1,19 +1,12 @@
 # HW 4—Knowledge Base
 
 
-## Introduction
-
-This is a two-part homework. In Part 1, you are going to create a basic knowledge base (KB) to store and retrieve facts, and in Part 2, you are going to extend the KB and create an inference engine. Please note that both parts should NOT take you equal time to complete; Part 2 is the bigger of the two parts, requiring more effort than on Part 1. Learn about each part by visiting the links below:
-
-[Part 1](https://github.com/NUCS348/assignment-4-knowledge-base/blob/mohammed_winter_2021/aux_readme_1.md)
-[Part 2](https://github.com/NUCS348/assignment-4-knowledge-base/blob/mohammed_winter_2021/aux_readme_2.md)
-
-## Part 1: Overview
+## Part 1: Introduction
 
 The facts you will store and retrieve will be statements that include predicates (e.g., Color, Size, Inst) that relate objects together. For example:
 
-    "Block1 is an instance of a rectangle" - Inst(block1, rectangle)
-    "Block1 is red" - Color(block1, red)
+    "Block1 is an instance of a rectangle": `Inst(block1, rectangle)`
+    "Block1 is red"Color(block1, red)
     "Block1 is large" - Size(block1, large)
     "Rectangles are blocks" - Isa(rectangle, block)
 
