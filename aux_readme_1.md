@@ -5,10 +5,14 @@
 
 The facts you will store and retrieve will be statements that include predicates (e.g., Color, Size, Inst) that relate objects together. For example:
 
-    "Block1 is an instance of a rectangle": `Inst(block1, rectangle)`
-    "Block1 is red"Color(block1, red)
-    "Block1 is large" - Size(block1, large)
-    "Rectangles are blocks" - Isa(rectangle, block)
+"Block1 is an instance of a rectangle":
+    Inst(block1, rectangle)
+"Block1 is red":
+    Color(block1, red)
+"Block1 is large":
+    Size(block1, large)
+"Rectangles are blocks":
+    Isa(rectangle, block)
 
 The KB supports two main interfaces for now:
 
