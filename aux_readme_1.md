@@ -5,12 +5,10 @@
 
 The facts you will store and retrieve will be statements that include predicates (e.g., Color, Size, Inst) that relate objects together. For example:
 
-"Block1 is an instance of a rectangle": `Inst(block1, rectangle)`
-"Block1 is red": `Color(block1, red)`
-"Block1 is large":
-    Size(block1, large)
-"Rectangles are blocks":
-    Isa(rectangle, block)
+    "Block1 is an instance of a rectangle": Inst(block1, rectangle)
+    "Block1 is red": Color(block1, red)
+    "Block1 is large": Size(block1, large)
+    "Rectangles are blocks": Isa(rectangle, block)
 
 The KB supports two main interfaces for now:
 
@@ -36,12 +34,12 @@ The provided tests use `statements_kb.txt`, and you may use `statements_kb2.txt`
 
 # Part 1: Your task
 
-To get you started, the stubbed out code for the `KnowledgeBase.kb_assert` and `KnowledgeBase.kb_ask` methods are in `student_code.py`.  These methods are called by the tests in `main.py`.
+To get you started, the stubbed-out code for the `KnowledgeBase.kb_assert` and `KnowledgeBase.kb_ask` methods are in `student_code.py`. These methods are called by the tests in `main.py`.
 
 Your task is two-part:
 
-1. Implement storing facts in the KB
-2. Implement retrieving facts from the KB 
+    1. Implement storing facts in the KB
+    2. Implement retrieving facts from the KB 
 
 ## Storing facts
 
