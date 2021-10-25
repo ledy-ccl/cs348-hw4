@@ -226,3 +226,4 @@ Represents a knowledge base and contains the two methods described in the writeu
 ### InferenceEngine
 
 Represents an inference engine. Implements forward-chaining in this homework.
+
