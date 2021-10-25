@@ -198,3 +198,4 @@ This file defines the two classes you must implement, `KnowledgeBase` and `Infer
 ### KnowledgeBase
 
 Represents a knowledge base and contains the two methods described in the writeup (`Assert` and `Ask`).
+
