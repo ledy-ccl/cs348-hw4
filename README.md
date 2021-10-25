@@ -11,5 +11,5 @@ In Part 2, you are going to extend the KB and create an inference engine.
 
 Learn about each part by visiting the links below:
 
-- [Part 1](https://github.com/NUCS348/assignment-4-knowledge-base/blob/mohammed_winter_2021/aux_readme_1.md)
+- [Part 1](https://github.com/NUCS348/assignment-4-knowledge-base/blob/main/aux_readme_1.md)
 - [Part 2](https://github.com/NUCS348/assignment-4-knowledge-base/blob/mohammed_winter_2021/aux_readme_2.md)
