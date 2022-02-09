@@ -11,7 +11,7 @@ In Part 2, you are going to extend the KB and create an inference engine.
 
 Learn about each part by visiting the links below:
 
-\[In case the links below don't work, they simply link to the aux_readme_1.md and aux_readme_2.md files.\]
+\[In case the links below don't work, they simply link to the _aux_readme_1.md_ and _aux_readme_2.md_ files.\]
 
 - [Part 1](https://github.com/NUCS348/assignment-4-knowledge-base/blob/main/aux_readme_1.md)
 - [Part 2](https://github.com/NUCS348/assignment-4-knowledge-base/blob/main/aux_readme_2.md)
