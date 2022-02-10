@@ -1,4 +1,4 @@
-# HW4—Knowledge Base: Part 2 (This one's about rules.)
+# HW4—Knowledge Base: Part 2
 
 
 ## Introduction
