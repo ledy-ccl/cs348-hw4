@@ -50,7 +50,7 @@ class KnowledgeBase(object):
     def kb_add(self, fact_rule):
         """Add a fact or rule to the KB
         Args:
-            fact_rule (Fact|Rule) - the fact or rule to be added
+            fact_rule (Fact or Rule) - Fact or Rule to be added
         Returns:
             None
         """
@@ -116,11 +116,11 @@ class KnowledgeBase(object):
             print("Invalid ask:", fact.statement)
             return []
 
-    def kb_retract(self, fact):
-        """Retract a fact from the KB
+    def kb_retract(self, fact_rule):
+        """Retract a fact or a rule from the KB
 
         Args:
-            fact (Fact) - Fact to be retracted
+            fact_rule (Fact or Rule) - Fact or Rule to be retracted
 
         Returns:
             None
