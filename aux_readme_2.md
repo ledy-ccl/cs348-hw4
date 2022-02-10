@@ -59,15 +59,15 @@ Now imagine that we know that box `A` is bigger than box `B`; i.e., we have the 
 
 If we find the fact `on(A, B)` in the KB, then we can use this rule to infer the fact `covered(B)`. If we don't have that fact, however, we now have a simple rule that will let us make the inference easily if we see that fact in the future.
 
-### Removing rules and facts inferred from a removed fact
+### Removing facts and rules inferred from a removed fact or rule
 
-When you remove a fact or a rule, you also need to remove all facts and rules that were inferred using this fact. However, a given fact or rule might be supported by multiple facts - so, you'll need to check whether the facts or rules inferred from this fact are also supported by other facts (or if they were directly asserted).
+When you remove a fact or a rule, you also need to remove all facts and rules that were inferred using this fact or rule. However, a given fact or rule might be supported by multiple facts and rules - so, you'll need to check whether the facts and rules rules inferred from this fact or rule are also supported by other facts or rules (or if they were directly asserted).
 
 As a simplification, you can assume that **no rules will create circular dependencies**. E.g., imagine a situation like `A => B`, `B => C`, and `C => B`. Removing `A` would mean removing `B` and `C`, since they depend on `A` via those rules. However, implementing that would get messy, since `B` and `C` depend on each other. You will **NOT** be given scenarios like this.
 
 ### Testing
 
-To grade this homework, we'll run several test cases similar to the ones provided. In each test case, facts and rules will be asserted one by one into the KB, and additional operations will be performed on the populated KB. Some test cases focus more on testing `fc_infer` while others `kb_retract`. Note that the test cases provided to you with this part of the homework are significantly less comprehensive than those from Part 1. **It is therefore imperative that you make your own testing files and test cases.** Please feel free to share them on Campuswire. When sharing tests, please provide your rationale for each test, explain what you hope to test with it, and/or describe how you developed the test.
+To grade this homework, we'll run several test cases similar to the ones provided. In each test case, facts and rules will be asserted one by one into the KB, and additional operations will be performed on the populated KB. Some test cases focus more on testing `fc_infer` while others `kb_retract`. Note that the test cases provided to you with this part of the homework are significantly less comprehensive than those from Part 1. **It is, therefore, imperative that you make your own testing files and test cases.** Please feel free to share them on Campuswire. When sharing tests, please provide your rationale for each test, explain what you hope to test with it, and/or describe how you developed the test.
 
 ### Hints
 
@@ -75,17 +75,23 @@ To grade this homework, we'll run several test cases similar to the ones provide
 
 - Use the `util.match` function to do unification and create possible bindings.
 - Use the `util.instantiate` function to bind a variable in the rest of a rule.
-- `Rule`s and `Fact`s have fields for `supported_by`, `supports_facts`, and `supports_rules`. Use them to track inferences! For example, imagine that a fact `F` and rule `R` matched to infer a new fact/rule `fr`.
-  - `fr` is *supported* by `F` and `R`. Add them to `fr`'s `supported_by` list - you can do this by passing them as a constructor argument when creating `fr`.
+- `Rule`s and `Fact`s have fields for `supported_by`, `supports_facts`, and `supports_rules`. Use them to track inferences! For example, imagine that a fact `F` and a rule `R` matched to infer a new fact/rule `fr`.
+  - `fr` is *supported* by `F` and `R`. Add them to `fr`'s `supported_by` list of lists - you can do this by passing them as a constructor argument when creating `fr`.
   - `F` and `R` now *support* `fr`. Add `fr` to the `supports_rules` and `supports_facts` lists (as appropriate) in `F` and `R`.
 
 #### Implementing `kb_retract`
 
-- An asserted fact should only be removed if it is unsupported.
-- An asserted rule should never be removed.
-- Use the `supports_rules` and `supports_facts` fields to find and adjust facts and rules that are supported by a retracted fact.
-  - The `supported_by` lists in each fact/rule that it supports needs to be adjusted accordingly.
-  - If a supported fact/rule is no longer supported as a result of retracting this fact (and is not asserted), it should also be removed.
+- Asserted facts and rules that DO NOT have support can be retracted.
+
+- Asserted facts and rules that have support cannot be retracted; when attempted to be retracted, they can and should only be unasserted.
+
+- Inferred facts and rules that DO NOT have support shouldn’t even be existing and they should have been retracted when their supports were retracted.
+
+- Inferred facts and rules that have support cannot be retracted, and there’s no unasserting needed, as they are already unasserted. In other words, when inferred facts and rules are attempted to be retracted, nothing should be done to them. They _can_, however, be asserted after they have already been inferred, which then will give them stronger protection against retraction (as they would have to become both unasserted and unsupported to be retracted). This is not required by this homework, though, and is just something to know.
+
+- Use the `supports_rules` and `supports_facts` fields to find and adjust facts and rules that are supported by a retracted fact or rule. For every fact or rule that the retracted fact or rule supports:
+  - Its corresponding list in the `supported_by` list of lists needs to be adjusted accordingly.
+  - If it is no longer supported as a result of the retraction and if it is also not asserted, it should be removed.
 
 ## Appendix: File Breakdown
 
@@ -101,28 +107,28 @@ This file defines all basic structure classes.
 
 ### Fact
 
-Represents a fact in our knowledge base (KB). Has a statement containing the content of the fact, e.g., `(isa Sorceress Wizard)` and fields tracking which facts/rules in the KB it supports and is supported by.
+Represents a fact in our knowledge base (KB). Has a statement containing the content of the fact, e.g., `(isa Sorceress Wizard)`, and fields tracking which facts and rules in the KB it supports and is supported by.
 
 **Attributes**
 
 - `name` (`str`): 'fact', the name of this class
 - `statement` (`Statement`): statement of this fact, basically what the fact actually says
-- `asserted` (`bool`): flag indicating if fact was asserted instead of inferred from other rules in the KB
-- `supported_by` (`listof Fact|Rule`): Facts/Rules that allow inference of the statement
+- `asserted` (`bool`): flag indicating if fact was asserted instead of inferred from other facts and rules in the KB
+- `supported_by` (`listof listof Fact|Rule`): Facts/Rules that allow inference of the statement
 - `supports_facts` (`listof Fact`): Facts that this fact supports
 - `supports_rules` (`listof Rule`): Rules that this fact supports
 
 ### Rule
 
-Represents a rule in our KB. Has a list of statements (the left-hand side or LHS) containing the statements that need to be in our KB for us to infer the right-hand-side or RHS statement. Also has fields tracking which facts/rules in the KB it supports and is supported by.
+Represents a rule in our KB. Has a list of statements (the left-hand side or LHS) containing the statements that need to be in our KB for us to infer the right-hand-side or RHS statement. Also has fields tracking which facts and rules in the KB it supports and is supported by.
 
 **Attributes**
 
 - `name` (`str`): 'rule', the name of this class
 - `lhs` (`listof Statement`): LHS statements of this rule
 - `rhs` (`Statement`): RHS statement of this rule
-- `asserted` (`bool`): flag indicating if rule was asserted instead of inferred from other rules/facts in the KB
-- `supported_by` (`listof Fact|Rule`): Facts/Rules that allow inference of the statement
+- `asserted` (`bool`): flag indicating if rule was asserted instead of inferred from other facts and rules in the KB
+- `supported_by` (`listof listof Fact|Rule`): Facts/Rules that allow inference of the statement
 - `supports_facts` (`listof Fact`): Facts that this rule supports
 - `supports_rules` (`listof Rule`): Rules that this rule supports
 
@@ -189,7 +195,7 @@ Container for multiple Bindings
 
 **Methods**
 
-- `add_bindings(bindings, facts_rules)` - (`(Bindings, listof Fact|Rule) => void`) - Add given bindings to list of Bindings along with associated rules or facts.
+- `add_bindings(bindings, facts_rules)` - (`(Bindings, listof Fact|Rule) => void`) - Add given bindings to list of Bindings along with associated facts or rules.
 
 ## `read.py`
 
@@ -225,5 +231,5 @@ Represents a knowledge base and contains the two methods described in the writeu
 
 ### InferenceEngine
 
-Represents an inference engine. Implements forward-chaining in this homework.
+Represents an inference engine. Implements Forward Chaining in this homework.
 
