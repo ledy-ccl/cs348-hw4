@@ -26,7 +26,7 @@ There are also two data files that contain the facts and rules to be inserted in
 - `statements_kb.txt`
 - `statements_kb2.txt`
 
-Some of the provided tests use `statements_kb.txt` while others add facts and rules to the KB from within the tests. And you may use `statements_kb2.txt` to generate your own tests.
+Some of the provided tests use `statements_kb.txt` while others add facts and rules to the KB from within the tests by first reading them in using read.parse_input(). And you may use `statements_kb2.txt` to generate your own tests.
 
 ## Your task
 
@@ -232,4 +232,3 @@ Represents a knowledge base and contains the two methods described in the writeu
 ### InferenceEngine
 
 Represents an inference engine. Implements Forward Chaining in this homework.
-
