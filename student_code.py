@@ -125,7 +125,7 @@ class KnowledgeBase(object):
         Returns:
             None
         """
-        printv("Retracting {!r}", 0, verbose, [fact])
+        printv("Retracting {!r}", 0, verbose, [fact_rule])
         ####################################################
         # Student code goes here
 
