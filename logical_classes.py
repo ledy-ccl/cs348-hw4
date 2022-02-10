@@ -9,7 +9,7 @@ class Fact(object):
         name (str): 'fact', the name of this class
         statement (Statement): statement of this fact, basically what the fact actually says
         asserted (bool): boolean flag indicating if fact was asserted instead of
-            inferred from other rules/facts in the KB
+            inferred from other facts and rules in the KB
         supported_by (listof listof Fact|Rule): Facts/Rules that allow inference of
             the statement
         supports_facts (listof Fact): Facts that this fact supports
@@ -21,7 +21,7 @@ class Fact(object):
         Args:
             statement (str|Statement): The statement of this fact, basically what the
                 fact actually says
-            supported_by (listof Fact|Rule): Facts/Rules that allow inference of
+            supported_by (listof listof Fact|Rule): Facts/Rules that allow inference of
                 the statement
         """
         super(Fact, self).__init__()
@@ -84,7 +84,7 @@ class Rule(object):
         lhs (listof Statement): LHS statements of this rule
         rhs (Statement): RHS statment of this rule
         asserted (bool): boolean flag indicating if rule was asserted instead of
-            inferred from other rules/facts in the KB
+            inferred from other facts and rules in the KB
         supported_by (listof listof Fact|Rule): Facts/Rules that allow inference of
             the statement
         supports_facts (listof Fact): Facts that this rule supports
@@ -96,7 +96,7 @@ class Rule(object):
         Args:
             rule (listof list): Raw representation of statements making up LHS and
                 RHS of this rule
-            supported_by (listof Fact|Rule): Facts/Rules that allow inference of
+            supported_by (listof listof Fact|Rule): Facts/Rules that allow inference of
                 the statement
         """
         super(Rule, self).__init__()
