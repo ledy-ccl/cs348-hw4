@@ -10,7 +10,7 @@ class Fact(object):
         statement (Statement): statement of this fact, basically what the fact actually says
         asserted (bool): boolean flag indicating if fact was asserted instead of
             inferred from other rules/facts in the KB
-        supported_by (listof Fact|Rule): Facts/Rules that allow inference of
+        supported_by (listof listof Fact|Rule): Facts/Rules that allow inference of
             the statement
         supports_facts (listof Fact): Facts that this fact supports
         supports_rules (listof Rule): Rules that this fact supports
@@ -85,7 +85,7 @@ class Rule(object):
         rhs (Statement): RHS statment of this rule
         asserted (bool): boolean flag indicating if rule was asserted instead of
             inferred from other rules/facts in the KB
-        supported_by (listof Fact|Rule): Facts/Rules that allow inference of
+        supported_by (listof listof Fact|Rule): Facts/Rules that allow inference of
             the statement
         supports_facts (listof Fact): Facts that this rule supports
         supports_rules (listof Rule): Rules that this rule supports
