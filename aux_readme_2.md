@@ -5,11 +5,11 @@
 
 In this part of the homework, you are going to extend the knowledge base (KB) and create an inference engine. The KB will now support three main interfaces:
 
-- `Assert`: Adds facts or rules to the KB. After you add facts or rules to the KB, the forward-chaining algorithm is used to infer other facts or rules.
-- `Ask`: Asks queries and returns a list of bindings for facts.
-- `Retract`: Removes asserted facts from the knowledge base. Also, removes all other facts or rules that are dependent on the removed fact or rule.
+- `Assert`: Adds facts and rules to the KB. After you add facts and rules to the KB, the Forward Chaining algorithm is used to infer other facts and rules.
+- `Ask`: Asks queries and returns a list of bindings for facts and rules.
+- `Retract`: Removes asserted facts and rules from the KB. Also, removes all other facts and rules that are dependent on the removed fact and rule.
 
-The end result of this assignment is a KB that can be used to model a world/game/thing with a static set of rules. Most board games and established businesses (during a short period of time) fell into this category. In this type of KB, asserted rules should be treated as laws, laying the foundation of the game/business logic; they are unquestionable and therefore must never be removed from the KB. Asserted facts could be treated as factual observations about the state of the world/game/thing, situations which hold until they cease to be valid, when they are retracted by us, the users. Inferred facts and rules should be thought of as hypotheses: things you write on a scratch paper when solving a problem. They should be generated when there are enough supporting evidences and removed as soon as *any* supporting evidence is retracted.
+The end result of this assignment is a KB that can be used to model a world/game/thing with a static set of rules. Most board games and established businesses (during a short period of time) fell into this category. Asserted facts and rules can be treated as factual observations about the state of the world/game/thing, situations which hold until they cease to be valid, when they are retracted by us, the users. Inferred facts and rules should be thought of as hypotheses: things you write on a scratch paper when solving a problem. They should be generated when there are enough supporting evidences and removed as soon as *any* supporting evidence is retracted.
 
 ## Starter code
 
@@ -26,7 +26,7 @@ There are also two data files that contain the facts and rules to be inserted in
 - `statements_kb.txt`
 - `statements_kb2.txt`
 
-The provided tests use `statements_kb.txt`, and you may use `statements_kb2.txt` to generate your own tests.
+Some of the provided tests use `statements_kb.txt` while others add facts and rules to the KB from within the tests. And you may use `statements_kb2.txt` to generate your own tests.
 
 ## Your task
 
@@ -34,8 +34,8 @@ To get you started, the `Assert` and `Ask` interfaces have been written - expose
 
 Your task is two-part:
 
-   1. Implement the forward-chaining inferences that occur upon asserting facts and rules into the KB - i.e., implement the `InferenceEnginer.fc_infer` method.
-   2. Implement the `Retract` interface to remove facts from the KB - i.e., implement the `KnowledgeBase.kb_retract` method.
+   1. Implement the Forward Chaining inferences that occur upon asserting facts and rules into the KB - i.e., implement the `InferenceEnginer.fc_infer` method.
+   2. Implement the `Retract` interface to remove facts and rules from the KB - i.e., implement the `KnowledgeBase.kb_retract` method.
 
 ### Rule currying in `fc_infer`
 
@@ -61,7 +61,7 @@ If we find the fact `on(A, B)` in the KB, then we can use this rule to infer the
 
 ### Removing rules and facts inferred from a removed fact
 
-When you remove a fact, you also need to remove all facts and rules that were inferred using this fact. However, a given fact/rule might be supported by multiple facts - so, you'll need to check whether the facts/rules inferred from this fact are also supported by other facts (or if they were directly asserted).
+When you remove a fact or a rule, you also need to remove all facts and rules that were inferred using this fact. However, a given fact or rule might be supported by multiple facts - so, you'll need to check whether the facts or rules inferred from this fact are also supported by other facts (or if they were directly asserted).
 
 As a simplification, you can assume that **no rules will create circular dependencies**. E.g., imagine a situation like `A => B`, `B => C`, and `C => B`. Removing `A` would mean removing `B` and `C`, since they depend on `A` via those rules. However, implementing that would get messy, since `B` and `C` depend on each other. You will **NOT** be given scenarios like this.
 
