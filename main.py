@@ -52,9 +52,15 @@ class KBTest(unittest.TestCase):
         print(' Retracting', r1)
         self.KB.kb_retract(r1)
         ask1 = read.parse_input("fact: (parentof ada ?X)")
-        print(' Asking if', ask1)
-        answer = self.KB.kb_ask(ask1)
-        self.assertEqual(str(answer[0]), "?X : bing")
+        ask2 = read.parse_input("fact: (auntof eva ?X)")
+        ask3 = read.parse_input("fact: (grandmotherof ?X chen)")
+
+        answer1 = self.KB.kb_ask(ask1)
+        answer2 = self.KB.kb_ask(ask2)
+        answer3 = self.KB.kb_ask(ask3)
+        self.assertFalse(answer1)
+        self.assertFalse(answer2)
+        self.assertFalse(answer3)
         
     def test6(self):
         KB = KnowledgeBase([], [])
