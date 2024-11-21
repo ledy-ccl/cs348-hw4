@@ -12,17 +12,17 @@ The facts you will store and retrieve will be statements that include predicates
 
 The KB supports two main interfaces for now:
 
-- `Assert`: Adds facts to the KB
+- `Assert`: Adds facts to the KB.
 - `Ask`: Asks queries and returns a list of bindings for facts.
 
 ## Starter code
 
 We provide you five files with code, details of which are described at the end of this writeup:
 
-- `main.py`: Contains code for testing the KB, which will be implemented as the `KnowledgeBase` class
-- `student_code.py`: Contains the `KnowledgeBase` class and is where you will be writing code
+- `main.py`: Contains code for testing the KB, which will be implemented as the `KnowledgeBase` class.
+- `student_code.py`: Contains the `KnowledgeBase` class and is where you will be writing code.
 - `logical_classes.py`: Contains classes for each type of logical component, e.g., `Fact`, `Rule`, etc.
-- `util.py`: Contains several useful helper functions
+- `util.py`: Contains several useful helper functions.
 - `read.py`: Contains functions that read statements from files or terminal. (You won't need to read/explore this file.)
 
 There are also two data files that contain the facts and rules to be inserted into the KB:
@@ -38,29 +38,29 @@ To get you started, the stubbed-out code for the `KnowledgeBase.kb_assert` and `
 
 Your task is two-part:
 
-   1. Implement storing facts in the KB
-   2. Implement retrieving facts from the KB 
+   1. Implement storing facts in the KB.
+   2. Implement retrieving facts from the KB.
 
 ### Storing facts
 
-Storing facts simply puts any facts received into a list of facts.  Be careful to only put a fact in the list and not just anything (i.e., check that the argument is a fact).  Note that we expect the facts to be stored in a list (and __not__ a set) to ensure that they are retrieved in a deterministic order.  This is not criticial to the function of the KB but is essential for the autograder that will be used to grade your code submission.
+Storing facts simply puts any facts received into a list of facts. Be careful to only put a fact in the list and not just anything (i.e., check that the argument is a fact). Note that we expect the facts to be stored in a list (and __not__ a set) to ensure that they are retrieved in a deterministic order. This is not criticial to the function of the KB but is essential for the autograder that will be used to grade your code submission.
 
 ### Retrieving facts
 
-The key idea is to find any facts in the KB that match the fact "asked" for.  Since the queried fact may contain a variable, matching facts might not be exact matches.  To help in finding matching facts, we provide a `match` method in `util.py`.  If a pair of facts match, then this method will return the bindings (in the data structure `Bindings`) that make the statements unify.
+The key idea is to find any facts in the KB that match the fact (query) "asked" for. Since the queried fact may contain a variable, matching facts might not be exact matches. To help in finding matching facts, we provide a `match` method in `util.py`. If a pair of facts match, then this method will return the bindings (in the data structure `Bindings`) that make the statements unify.
 
-`Bindings` is a list of pairs (bindings), where each pair is a variable (e.g., '?X') and a value (e.g., 'red').  Since it is a list, there may be multiple pairs.  Actually, there needs to be exactly one binding for each variable.  For example, in asking for '(color ?X red)', there will be only one binding, the one for '?X'.  But the query for '(color ?X ?Y)'' will result in bindings for '?X' and '?Y'.  See test 5 for an example of bindings containing more than one variable.
+`Bindings` is a list of pairs (bindings), where each pair is a variable (e.g., '?X') and a value (e.g., 'red'). Since it is a list, there may be multiple pairs. Actually, there needs to be exactly one binding for each variable. For example, in asking for '(color ?X red)', there will be only one binding, the one for '?X'. But the query for '(color ?X ?Y)'' will result in bindings for '?X' and '?Y'. See test 5 for an example of bindings containing more than one variable.
 
-Since there may be many facts that match a queried fact, `kb_ask` needs to return a list of bindings (in the data structure `ListOfBindings`) or False if no facts match. `ListOfBindings` is exactly as the name implies, a list of `Bindings`, packaged up in a class with convenient accessors and such.  See tests 3 and 5 for examples of multiple bindings being returned from `kb_ask`.
+Since there may be many facts that match a queried fact, `kb_ask` needs to return a list of bindings (in the data structure `ListOfBindings`) or False if no facts match. `ListOfBindings` is exactly as the name implies, a list of `Bindings`, packaged up in a class with convenient accessors and such. See tests 3 and 5 for examples of multiple bindings being returned from `kb_ask`.
 
 
 ## Testing
 
-To test your code, we'll create several testing files that will contain a bunch of facts similar to the ones provided. Each fact will be asserted one by one into the KB. After asserting the facts, a query will be constructed, and the KB will be asked for a fact.  __We also recommend that you make your own testing files__ and that you feel free to share them on Campuswire. When sharing tests, please provide your rationale for each test, explain what you hope to test with it, and/or describe how you developed the test.
+To test your code, we'll create several testing files that will contain a bunch of facts similar to the ones provided. Each fact will be asserted one by one into the KB. After asserting the facts, a query will be constructed, and the KB will be asked for a fact.  __We also recommend that you make your own testing files__ and that you feel free to share them with your fellow students and the TAs. When sharing tests, please provide your rationale for each test, explain what you hope to test with it, and/or describe how you developed the test.
 
 ## Sneak-peek of Part 2
 
-In Part 2, you will be extending the KB. You will introduce rules that may also be asserted. Given the rules and facts asserted, you will infer new facts.  Finally, you will retract some facts and related facts that have been inferred.
+In Part 2, you will be extending the KB. You will introduce rules that may also be asserted. Given the rules and facts asserted, you will infer new facts. Finally, you will retract some facts and related facts that have been inferred.
 
 __As you implement Part 1, you may want to think ahead to how you would extend the KB to handle rules, inference, and retraction.__
 

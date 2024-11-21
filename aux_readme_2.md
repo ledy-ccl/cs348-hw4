@@ -9,7 +9,7 @@ In this part of the homework, you are going to extend the knowledge base (KB) an
 - `Ask`: Asks queries and returns a list of bindings for facts and rules.
 - `Retract`: Removes asserted facts and rules from the KB. Also, removes all other facts and rules that are dependent on the removed fact and rule.
 
-The end result of this assignment is a KB that can be used to model a world/game/thing with a static set of rules. Most board games and established businesses (during a short period of time) fell into this category. Asserted facts and rules can be treated as factual observations about the state of the world/game/thing, situations which hold until they cease to be valid, when they are retracted by us, the users. Inferred facts and rules should be thought of as hypotheses: things you write on a scratch paper when solving a problem. They should be generated when there are enough supporting evidences and removed as soon as *any* supporting evidence is retracted.
+The end result of this assignment is a KB that can be used to model a world/game/thing with a static set of rules. Most board games and established businesses (during reasonably short periods of time) fall into this category. Asserted facts and rules can be treated as factual observations about the state of the world/game/thing, situations which hold until they cease to be valid, when they are retracted by us, the users. Inferred facts and rules should be thought of as hypotheses: things you write on a scratch paper when solving a problem. They should be generated when there are enough supporting evidences and removed as soon as *any* supporting evidence is retracted.
 
 ## Starter code
 
@@ -43,7 +43,7 @@ The key idea is that we don't just infer new facts - we can also infer new rules
 
 When we add a new fact to the KB, we check to see if it triggers any rule(s). When we add a new rule, we check to see if it's triggered by existing facts.
 
-However, a rule might have multiple statements on its left-hand side (LHS), and we don't want to iterate each of these statements every time we add a new fact to the KB. Instead, we'll employ a cool trick. Whenever we add a new rule, we'll only check the first element of the LHS of that rule against the facts in our KB. (If we add a new fact, we'll reverse this - we'll examine each rule in our KB and check the first element of its LHS against this new fact.) If there's a match with this first element, we'll add a new rule paired with *bindings* for that match.
+However, a rule might have multiple statements on its left-hand side (LHS), and we don't want to iterate each of these statements every time we add a new fact to the KB. Instead, we'll employ a little trick. Whenever we add a new rule, we'll only check the first element of the LHS of that rule against the facts in our KB. (If we add a new fact, we'll reverse this - we'll examine each rule in our KB and check the first element of its LHS against this new fact.) If there's a match with this first element, we'll add a new rule paired with *bindings* for that match.
 
 For example, imagine a box-world. Consider a rule stating that if a box `?x` is larger than another box `?y`, and box `?x` is on box `?y`, then box `?y` is covered. Formally, that looks like:
 
