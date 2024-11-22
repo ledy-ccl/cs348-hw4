@@ -216,13 +216,11 @@ class InferenceEngine(object):
                 new_fact = Fact(instantiate(rule.rhs, bindings), supported_by=[[fact, rule]])
                 fact.supports_facts.append(new_fact)
                 rule.supports_facts.append(new_fact)
-                if not kb.kb_contains(new_fact):
-                    kb.kb_assert(new_fact)
+                kb.kb_assert(new_fact)
             else:  # Infer a new curried rule
                 new_lhs = [instantiate(statement, bindings) for statement in rule.lhs[1:]]
                 new_rhs = instantiate(rule.rhs, bindings)
                 new_rule = Rule([new_lhs, new_rhs], supported_by=[[fact, rule]])
                 fact.supports_rules.append(new_rule)
                 rule.supports_rules.append(new_rule)
-                if not kb.kb_contains(new_rule):
-                    kb.kb_assert(new_rule)
+                kb.kb_assert(new_rule)
